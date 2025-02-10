@@ -41,7 +41,7 @@ const ProviderSlider = () => {
         <Slider {...settings} className="card-slider">
           {cards.map((card, index) => (
             <div key={index} className="card-product-container">
-              <a href={card.link} className="card-product card">
+              <a className="card-product card">
                 <div className="card-image">
                   <img src={card.img} alt={card.title} />
                 </div>

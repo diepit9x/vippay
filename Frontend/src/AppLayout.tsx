@@ -1,17 +1,17 @@
-import { Outlet } from "react-router-dom";
-import AppHeader from "@/components/layout/app.header";
-import AppFooter from "@/components/layout/app.footer";
-import "@/styles/style.scss";
-import "bootstrap/dist/css/bootstrap.min.css";
+import { Outlet } from 'react-router-dom';
+import AppHeader from '@/components/layout/AppHeader';
+import AppFooter from '@/components/layout/AppFooter';
+import '@/styles/style.scss';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const AppLayout = () => {
-  return (
-    <>
-      <AppHeader />
-      <Outlet />
-      <AppFooter />
-    </>
-  );
+    return (
+        <>
+            <AppHeader />
+            <Outlet />
+            <AppFooter />
+        </>
+    );
 };
 
 export default AppLayout;

@@ -42,7 +42,7 @@ const TableUser = () => {
 
     const FakeData: IUserTable = [
         {
-            _id: 1111111111111111111,
+            _id: 11,
             fullName: 'Diep',
             email: 'diep@gmail.com',
             phone: '0987654321',
@@ -111,24 +111,6 @@ const TableUser = () => {
             ellipsis: true,
         },
         {
-            title: 'Email',
-            dataIndex: 'email',
-            copyable: true,
-            ellipsis: true,
-        },
-        {
-            title: 'Email',
-            dataIndex: 'email',
-            copyable: true,
-            ellipsis: true,
-        },
-        {
-            title: 'Email',
-            dataIndex: 'email',
-            copyable: true,
-            ellipsis: true,
-        },
-        {
             title: 'Created at',
             dataIndex: 'createdAt',
             search: false,
@@ -167,8 +149,7 @@ const TableUser = () => {
             </div>
             <ProTable<IUserTable, TSearch>
                 defaultSize="large"
-                className="custom-table-antd"
-                rowClassName={'text-center'}
+                className="custom-ant-table"
                 columns={columns}
                 bordered={true}
                 size="small"

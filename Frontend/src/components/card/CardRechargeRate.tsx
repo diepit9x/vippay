@@ -1,124 +1,91 @@
-import { Container, Tab, Tabs } from 'react-bootstrap';
-
-const rechargeRates = [
-    {
-        provider: 'VIETTEL',
-        eventKey: 'viettel',
-        rates: [
-            {
-                group: 'Nhóm Không Bảo Hiểm',
-                values: [11, 11, 11, 11, 11, 11, 11, 11, 11],
-            },
-            {
-                group: 'Nhóm Bảo Hiểm',
-                values: [11.5, 11.5, 11.5, 11.5, 11.5, 11.5, 11.5, 11.5, 11.5],
-            },
-        ],
-        amounts: [
-            '10,000đ',
-            '20,000đ',
-            '30,000đ',
-            '50,000đ',
-            '100,000đ',
-            '200,000đ',
-            '300,000đ',
-            '500,000đ',
-            '1,000,000đ',
-        ],
-    },
-    {
-        provider: 'VINAPHONE',
-        eventKey: 'vinaphone',
-        rates: [
-            { group: 'Nhóm Không Bảo Hiểm', values: [12, 13, 14, 16, 17, 11, 19, 11] },
-            {
-                group: 'Nhóm Bảo Hiểm',
-                values: [11.5, 11.5, 11.5, 11.5, 11.5, 11.5, 11.5, 11.5],
-            },
-        ],
-        amounts: [
-            '10,000đ',
-            '20,000đ',
-            '30,000đ',
-            '50,000đ',
-            '100,000đ',
-            '200,000đ',
-            '300,000đ',
-            '500,000đ',
-        ],
-    },
-    {
-        provider: 'MOBIFONE',
-        eventKey: 'mobifone',
-        rates: [
-            { group: 'Nhóm Không Bảo Hiểm', values: [12, 13, 14, 16, 17, 11, 19, 11] },
-            {
-                group: 'Nhóm Bảo Hiểm',
-                values: [11.5, 11.5, 11.5, 11.5, 11.5, 11.5, 11.5, 11.5],
-            },
-        ],
-        amounts: [
-            '10,000đ',
-            '20,000đ',
-            '30,000đ',
-            '50,000đ',
-            '100,000đ',
-            '200,000đ',
-            '300,000đ',
-            '500,000đ',
-        ],
-    },
-];
+import React, { useState } from 'react';
+import { Table, Radio, Flex } from 'antd';
+import { Container } from 'react-bootstrap';
+import { vndMoneyFormat } from '@/helpers/money.format';
 
 const RechargeRateTable = () => {
+    const data = [
+        {
+            telco: 'VIETTEL',
+            agents: [
+                { id: 1, fees: { 10000: 20, 20000: 25, 30000: 20 } },
+                { id: 2, fees: { 10000: 19, 20000: 23, 30000: 19 } },
+            ],
+        },
+        {
+            telco: 'VINAPHONE',
+            agents: [
+                {
+                    id: 1,
+                    fees: {
+                        10000: 27,
+                        20000: 24,
+                        30000: 15,
+                        50000: 27,
+                        100000: 24,
+                        200000: 15,
+                        300000: 15,
+                        500000: 15,
+                        1000000: 15,
+                    },
+                },
+                { id: 1, fees: { 10000: 30, 20000: 25, 30000: 18 } },
+            ],
+        },
+    ];
+
+    const [selectedTelco, setSelectedTelco] = useState(data[0].telco);
+
+    const selectedData = data.find((d) => d.telco === selectedTelco);
+    const agents = selectedData ? selectedData.agents : [];
+    const amounts = Object.keys(agents[0]?.fees || {}).map(Number);
+
+    const tableData = agents.map((agent) => {
+        const row = { key: agent.id, agent: `Agent ${agent.id}` };
+        amounts.forEach((amount) => {
+            row[amount] = agent.fees[amount] || '-';
+        });
+        return row;
+    });
+
+    const columns = [
+        { title: 'Nhóm', dataIndex: 'agent', key: 'agent' },
+        ...amounts.map((amount) => ({
+            title: vndMoneyFormat(amount),
+            dataIndex: amount,
+            key: amount,
+        })),
+    ];
+
     return (
-        <Container className="exchangeRateTable">
-            <div className="description mb-3">
-                <div className="text-center title">Bảng phí đổi thẻ cào</div>
+        <Container>
+            <div className="description">
+                <div className="text-center title">Bảng Phí Đổi Thẻ Cào</div>
             </div>
-            <Tabs
-                defaultActiveKey={rechargeRates[0].eventKey}
-                id="exchange-rates-tabs"
-                className="mb-3"
-                justify
-            >
-                {rechargeRates.map((rateData) => (
-                    <Tab
-                        eventKey={rateData.eventKey}
-                        title={rateData.provider}
-                        key={rateData.eventKey}
-                    >
-                        <div className="table-responsive">
-                            <table className="table table-bordered table-custom">
-                                <thead>
-                                    <tr>
-                                        <th className="text-center">Nhóm</th>
-                                        {rateData.amounts.map((amount, index) => (
-                                            <th className="text-center" key={index}>
-                                                {amount}
-                                            </th>
-                                        ))}
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {rateData.rates.map((row, index) => (
-                                        <tr key={index}>
-                                            <td className="text-center font-weight-bold">
-                                                {row.group}
-                                            </td>
-                                            {row.values.map((value, idx) => (
-                                                <td className="text-center" key={idx}>
-                                                    {value} %
-                                                </td>
-                                            ))}
-                                        </tr>
-                                    ))}
-                                </tbody>
-                            </table>
-                        </div>
-                    </Tab>
-                ))}
-            </Tabs>
+            <Flex justify="center">
+                <Radio.Group
+                    buttonStyle="solid"
+                    value={selectedTelco}
+                    onChange={(e) => setSelectedTelco(e.target.value)}
+                    style={{ display: 'flex', flexWrap: 'wrap', gap: '5px' }}
+                >
+                    {data.map((d) => (
+                        <Radio.Button key={d.telco} value={d.telco}>
+                            {d.telco}
+                        </Radio.Button>
+                    ))}
+                </Radio.Group>
+            </Flex>
+            <Table
+                className="custom-ant-table"
+                style={{ marginTop: '10px' }}
+                size="small"
+                columns={columns}
+                dataSource={tableData}
+                pagination={false}
+                scroll={{ x: 991 }}
+                bordered
+            />
         </Container>
     );
 };

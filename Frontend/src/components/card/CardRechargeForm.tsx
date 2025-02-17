@@ -27,6 +27,7 @@ const MultipleForm = () => {
 
     return (
         <Form
+            className="custom-ant-form"
             form={form}
             name="dynamic_form_nest_item"
             onFinish={onFinish}
@@ -51,9 +52,9 @@ const MultipleForm = () => {
                         {fields.map(({ key, name, ...restField }) => (
                             <Row
                                 key={key}
-                                gutter={[10, 5]}
+                                gutter={[10, 0]}
                                 justify="start"
-                                style={{ margin: '15px -5px' }}
+                                style={{ margin: '10px -5px' }}
                             >
                                 <Col lg={5} xs={24} style={{ width: '100%' }}>
                                     <Form.Item
@@ -66,13 +67,12 @@ const MultipleForm = () => {
                                         <Select
                                             showSearch={true}
                                             placeholder="Loại thẻ"
-                                            style={{ width: '100%' }}
                                             optionFilterProp="label"
                                             options={telcos}
                                         />
                                     </Form.Item>
                                 </Col>
-                                <Col lg={6} xs={12} style={{ width: '100%' }}>
+                                <Col lg={6} xs={12}>
                                     <Form.Item
                                         {...restField}
                                         name={[name, 'code']}
@@ -83,7 +83,7 @@ const MultipleForm = () => {
                                         <Input placeholder="Mã thẻ" allowClear={true} />
                                     </Form.Item>
                                 </Col>
-                                <Col lg={6} xs={12} style={{ width: '100%' }}>
+                                <Col lg={6} xs={12}>
                                     <Form.Item
                                         {...restField}
                                         name={[name, 'serial']}
@@ -94,7 +94,7 @@ const MultipleForm = () => {
                                         <Input placeholder="Serial" allowClear={true} />
                                     </Form.Item>
                                 </Col>
-                                <Col lg={5} xs={19} style={{ width: '100%' }}>
+                                <Col lg={5} xs={19}>
                                     <Form.Item
                                         {...restField}
                                         name={[name, 'amount']}
@@ -105,32 +105,28 @@ const MultipleForm = () => {
                                         <Select
                                             showSearch={true}
                                             placeholder="Mệnh giá"
-                                            style={{ width: '100%' }}
                                             optionFilterProp="label"
                                             options={amounts}
                                         />
                                     </Form.Item>
                                 </Col>
-                                <Col lg={2} xs={5} style={{ textAlign: 'right' }}>
-                                    {key > 0 ? (
-                                        <Button
-                                            color="danger"
-                                            className="btn btn-error"
-                                            variant="solid"
-                                            icon={<MinusCircleOutlined />}
-                                            style={{ width: '100%' }}
-                                            onClick={() => remove(name)}
-                                        />
-                                    ) : (
-                                        <Button
-                                            color="primary"
-                                            className="btn btn-primary"
-                                            variant="solid"
-                                            icon={<PlusCircleOutlined />}
-                                            style={{ width: '100%' }}
-                                            onClick={() => add()}
-                                        />
-                                    )}
+                                <Col lg={2} xs={5}>
+                                    <Button
+                                        color={key > 0 ? 'danger' : 'primary'}
+                                        className={
+                                            key > 0 ? 'btn btn-error' : 'btn btn-primary'
+                                        }
+                                        variant="solid"
+                                        icon={
+                                            key > 0 ? (
+                                                <MinusCircleOutlined />
+                                            ) : (
+                                                <PlusCircleOutlined />
+                                            )
+                                        }
+                                        style={{ width: '100%' }}
+                                        onClick={() => (key > 0 ? remove(name) : add())}
+                                    />
                                 </Col>
                             </Row>
                         ))}

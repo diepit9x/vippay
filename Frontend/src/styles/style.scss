@@ -253,6 +253,7 @@ body {
         }
 
         .ant-pro-query-filter.ant-pro-query-filter {
+            padding: 0px;
             padding-bottom: 15px;
             @media (max-width: 768px) {
                 padding: 0px;
@@ -325,17 +326,26 @@ body {
     }
 
     .ant-radio-button-wrapper-checked {
-        background: $primaryColor;
-        border-color: $primaryColor;
+        background: $primaryColor !important;
+        border-color: $primaryColor !important;
 
         &:hover {
-            background: $primaryHoverColor;
+            background: $primaryHoverColor !important;
         }
     }
     .ant-radio-button-wrapper {
         &:first-child,
         &:last-child {
             border-radius: 0px;
+        }
+    }
+
+    .ant-upload-list-item {
+        .ant-upload-list-item-action {
+            opacity: 1 !important;
+            .anticon-delete {
+                color: #ff0909 !important;
+            }
         }
     }
 }

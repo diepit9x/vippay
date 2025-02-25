@@ -1,5 +1,10 @@
 import { dateRangeValidate } from '@/helpers/date.range';
-import { EditOutlined, PlusOutlined, UploadOutlined } from '@ant-design/icons';
+import {
+    EditOutlined,
+    ExportOutlined,
+    PlusOutlined,
+    UploadOutlined,
+} from '@ant-design/icons';
 import type { ActionType, ProColumns } from '@ant-design/pro-components';
 import { ProTable } from '@ant-design/pro-components';
 import { Button, Input } from 'antd';
@@ -144,7 +149,7 @@ const TableUser = () => {
 
     return (
         <Container className="exchangeRateTable">
-            <div className="description mb-3">
+            <div className="description">
                 <div className="text-center title">Lịch sử đổi thẻ cào</div>
             </div>
             <ProTable<IUserTable, TSearch>
@@ -203,28 +208,25 @@ const TableUser = () => {
                     pageSize: meta.pageSize,
                     showSizeChanger: true,
                     total: meta.total,
+                    showTotal: (total, range) => {
+                        return (
+                            <div>
+                                {range[0]}-{range[1]}/{total}
+                            </div>
+                        );
+                    },
                 }}
                 // headerTitle="Table user"
                 toolBarRender={() => [
                     <Button
                         key="button"
-                        icon={<PlusOutlined />}
+                        icon={<ExportOutlined />}
                         onClick={() => {
-                            setIsModalAddUserOpen(true);
+                            alert('export');
                         }}
                         type="primary"
                     >
-                        Add new
-                    </Button>,
-                    <Button
-                        key="button"
-                        icon={<UploadOutlined />}
-                        onClick={() => {
-                            setIsModalImportUserOpen(true);
-                        }}
-                        type="primary"
-                    >
-                        Import
+                        Export
                     </Button>,
                 ]}
             />

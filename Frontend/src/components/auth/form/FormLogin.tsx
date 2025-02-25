@@ -4,7 +4,7 @@ import { antdFormRules } from '@/models/rule/antd.form.rule';
 import { Form, Input } from 'antd';
 
 interface IProps {
-    setCurrentAction: (v: TAuthAction) => void;
+    setActionAuthModal: (v: TAuthAction) => void;
 }
 
 const FormLogin = (props: IProps) => {
@@ -27,7 +27,7 @@ const FormLogin = (props: IProps) => {
                     addonAfter={
                         <div
                             className="forgot"
-                            onClick={() => props.setCurrentAction('ResetPassword')}
+                            onClick={() => props.setActionAuthModal('ResetPassword')}
                         >
                             Quên MK?
                         </div>

@@ -17,7 +17,8 @@ const AppHeader: React.FC = () => {
     const navbarRef = useRef<HTMLDivElement | null>(null);
     const toggleNavbar = () => setExpanded((prev) => !prev);
     const [modalAuthOpen, setModalAuthOpen] = useState<boolean>(false);
-    const actionAuthModal = useRef<TAuthAction>('Login');
+    const [actionAuthModal, setActionAuthModal] = useState<TAuthAction | null>(null);
+    // const actionAuthModal = useRef<TAuthAction>('Login');
 
     useEffect(() => {
         setExpanded(false);
@@ -38,7 +39,7 @@ const AppHeader: React.FC = () => {
     }, [expanded]);
 
     const handleAuthModal = (method: TAuthAction) => {
-        actionAuthModal.current = method;
+        setActionAuthModal(method);
         setExpanded(false);
         setModalAuthOpen(true);
     };
@@ -118,7 +119,8 @@ const AppHeader: React.FC = () => {
             <AuthUserModal
                 modalAuthOpen={modalAuthOpen}
                 setModalAuthOpen={setModalAuthOpen}
-                action={actionAuthModal.current}
+                actionAuthModal={actionAuthModal}
+                setActionAuthModal={setActionAuthModal}
             />
         </>
     );

@@ -29,7 +29,7 @@ interface IUserTable {
     updatedAt: Date;
 }
 
-const TableUser = () => {
+const History = () => {
     const [meta, setMeta] = useState({
         current: 1,
         pageSize: 10,
@@ -234,4 +234,4 @@ const TableUser = () => {
     );
 };
 
-export default TableUser;
+export default History;

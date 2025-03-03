@@ -2,7 +2,7 @@ import { IAuthResetPassword } from '@/models/auth/auth.resetPassword';
 import { antdFormRules } from '@/models/rule/antd.form.rule';
 import { Form, Input } from 'antd';
 
-const FormResetPassword = () => {
+const ResetPassword = () => {
     return (
         <>
             <Form.Item<IAuthResetPassword>
@@ -22,4 +22,4 @@ const FormResetPassword = () => {
         </>
     );
 };
-export default FormResetPassword;
+export default ResetPassword;

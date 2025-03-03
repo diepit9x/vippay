@@ -3,9 +3,9 @@ import { ICart } from '@/models/card/cart/cart';
 import { removeCart, updateCart } from '@/redux/cart/cart.slice';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { Button, InputNumber, Table, TableColumnsType } from 'antd';
-import CardDeleteCart from './CardDeleteCart';
+import Delete from './cart/Delete';
 
-const CardPurchaseCart = () => {
+const Cart = () => {
     const dispatch = useAppDispatch();
     const cartData = useAppSelector((state) => state.cart.cart);
 
@@ -65,7 +65,7 @@ const CardPurchaseCart = () => {
         {
             align: 'center',
             render: (_, record) => (
-                <CardDeleteCart uuid={record.uuid} handleDelete={handleDelete} />
+                <Delete uuid={record.uuid} handleDelete={handleDelete} />
             ),
         },
     ];
@@ -116,4 +116,4 @@ const CardPurchaseCart = () => {
     );
 };
 
-export default CardPurchaseCart;
+export default Cart;

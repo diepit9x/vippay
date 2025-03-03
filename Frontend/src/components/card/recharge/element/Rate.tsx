@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Table, Radio, Flex } from 'antd';
 import { Container } from 'react-bootstrap';
 import { vndMoneyFormat } from '@/helpers/money.format';
 
-const RechargeRateTable = () => {
+const Rate = () => {
     const data = [
         {
             telco: 'VIETTEL',
@@ -90,4 +90,4 @@ const RechargeRateTable = () => {
     );
 };
 
-export default RechargeRateTable;
+export default Rate;

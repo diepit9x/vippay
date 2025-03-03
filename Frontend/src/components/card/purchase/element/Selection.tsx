@@ -21,7 +21,7 @@ interface ICardType {
     telcos: ICardTelco[];
 }
 
-const CardTypeAndValue = () => {
+const Selection = () => {
     const data: ICardType[] = [
         {
             id: 1,
@@ -208,4 +208,4 @@ const CardTypeAndValue = () => {
         </>
     );
 };
-export default CardTypeAndValue;
+export default Selection;

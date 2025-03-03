@@ -7,7 +7,7 @@ interface IProps {
     setActionAuthModal: (v: TAuthAction) => void;
 }
 
-const FormLogin = (props: IProps) => {
+const Login = (props: IProps) => {
     return (
         <>
             <Form.Item<IAuthLogin>
@@ -37,4 +37,4 @@ const FormLogin = (props: IProps) => {
         </>
     );
 };
-export default FormLogin;
+export default Login;

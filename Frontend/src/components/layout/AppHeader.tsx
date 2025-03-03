@@ -7,18 +7,18 @@ import {
     faBars,
     faTimes,
 } from '@fortawesome/free-solid-svg-icons';
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { TAuthAction } from '@/models/auth/auth.action';
-import AuthUserModal from '../auth/AuthUserModal';
+import AuthUserModal from '@/components/auth/AuthUserModal';
 
 const AppHeader: React.FC = () => {
     const [expanded, setExpanded] = useState<boolean>(false);
+    const navigate = useNavigate();
     const location = useLocation();
     const navbarRef = useRef<HTMLDivElement | null>(null);
     const toggleNavbar = () => setExpanded((prev) => !prev);
     const [modalAuthOpen, setModalAuthOpen] = useState<boolean>(false);
     const [actionAuthModal, setActionAuthModal] = useState<TAuthAction | null>(null);
-    // const actionAuthModal = useRef<TAuthAction>('Login');
 
     useEffect(() => {
         setExpanded(false);
@@ -42,6 +42,12 @@ const AppHeader: React.FC = () => {
         setActionAuthModal(method);
         setExpanded(false);
         setModalAuthOpen(true);
+    };
+
+    const handleDropdownNavigate = (e: React.MouseEvent<HTMLElement>) => {
+        e.preventDefault();
+        const target = e.currentTarget as HTMLAnchorElement;
+        navigate(target.pathname);
     };
 
     return (
@@ -87,11 +93,23 @@ const AppHeader: React.FC = () => {
                                 Mua thẻ cào
                             </NavLink>
                             <NavDropdown title="Giao dịch" id="basic-nav-dropdown">
-                                <NavDropdown.Item href="#action/3.1">
+                                <NavDropdown.Item
+                                    href="/transaction/withdraw"
+                                    onClick={(e) => handleDropdownNavigate(e)}
+                                >
+                                    Rút tiền
+                                </NavDropdown.Item>
+                                <NavDropdown.Item
+                                    href="/transaction/transfer"
+                                    onClick={(e) => handleDropdownNavigate(e)}
+                                >
                                     Chuyển tiền
                                 </NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.2">
-                                    Rút tiền
+                                <NavDropdown.Item
+                                    href="/transaction/history"
+                                    onClick={(e) => handleDropdownNavigate(e)}
+                                >
+                                    Lịch sử
                                 </NavDropdown.Item>
                             </NavDropdown>
                         </Nav>

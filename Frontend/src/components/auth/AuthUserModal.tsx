@@ -8,9 +8,9 @@ import { IAuthResetPassword } from '@/models/auth/auth.resetPassword';
 import { Button, Form, message, Modal } from 'antd';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
-import FormLogin from './form/FormLogin';
-import FormResetPassword from './form/FormResetPassword';
-import FormRegister from './form/FormRegister';
+import Login from './form/Login';
+import ResetPassword from './form/ResetPassword';
+import Register from './form/Register';
 
 interface IProps {
     modalAuthOpen: boolean;
@@ -56,11 +56,11 @@ const AuthUserModal = ({
     const renderFormFields = () => {
         switch (actionAuthModal) {
             case 'Login':
-                return <FormLogin setActionAuthModal={setActionAuthModal} />;
+                return <Login setActionAuthModal={setActionAuthModal} />;
             case 'ResetPassword':
-                return <FormResetPassword />;
+                return <ResetPassword />;
             case 'Register':
-                return <FormRegister />;
+                return <Register />;
             default:
                 return null;
         }

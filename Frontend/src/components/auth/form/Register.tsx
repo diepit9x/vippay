@@ -2,7 +2,7 @@ import { IAuthRegister } from '@/models/auth/auth.register';
 import { antdFormRules } from '@/models/rule/antd.form.rule';
 import { Form, Input, Row, Col } from 'antd';
 
-const FormRegister = () => {
+const Register = () => {
     return (
         <Row gutter={10}>
             <Col xs={24} md={12}>
@@ -63,4 +63,4 @@ const FormRegister = () => {
     );
 };
 
-export default FormRegister;
+export default Register;

@@ -1,9 +1,9 @@
 import { Alert, Col, Row } from 'antd';
 import { Container } from 'react-bootstrap';
-import CardPurchaseCart from './cart/CardPurchaseCart';
-import CardTypeAndValue from './selection/CardTypeAndValue';
+import Cart from './element/Cart';
+import Selection from './element/Selection';
 
-const CardPurchaseSelection = () => {
+const CardPurchase = () => {
     return (
         <Container className="mb-3">
             <div className="description">
@@ -17,13 +17,13 @@ const CardPurchaseSelection = () => {
             </div>
             <Row>
                 <Col sm={24} md={12} style={{ width: '100%' }}>
-                    <CardTypeAndValue />
+                    <Selection />
                 </Col>
                 <Col sm={24} md={12} style={{ width: '100%' }}>
-                    <CardPurchaseCart />
+                    <Cart />
                 </Col>
             </Row>
         </Container>
     );
 };
-export default CardPurchaseSelection;
+export default CardPurchase;

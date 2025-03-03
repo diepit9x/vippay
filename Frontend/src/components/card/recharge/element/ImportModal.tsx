@@ -7,8 +7,8 @@ import { Buffer } from 'buffer';
 import excel from 'exceljs';
 import FileSample from '@/assets/files/sample/ImportCards.xlsx?url';
 import { vndFormat } from '@/helpers/date.range';
-import CardImportDelete from './CardImportDelete';
 import { v4 as uuidv4 } from 'uuid';
+import Delete from './import/Delete';
 
 interface ICardImport extends ICard {
     uuid: string;
@@ -20,7 +20,7 @@ interface IProps {
     handleGetFormData: () => ICard[];
     handleSetFormData: (v: ICard[]) => void;
 }
-const CardImportModal = (props: IProps) => {
+const ImportModal = (props: IProps) => {
     const {
         modalCardImportOpen,
         setModalCardImportOpen,
@@ -213,7 +213,7 @@ const CardImportModal = (props: IProps) => {
         },
         {
             render: (value, record, index) => (
-                <CardImportDelete uuid={record.uuid} handleDelete={handleDelete} />
+                <Delete uuid={record.uuid} handleDelete={handleDelete} />
             ),
         },
     ];
@@ -272,4 +272,4 @@ const CardImportModal = (props: IProps) => {
         </Modal>
     );
 };
-export default CardImportModal;
+export default ImportModal;

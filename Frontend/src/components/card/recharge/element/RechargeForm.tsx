@@ -7,7 +7,7 @@ import {
 } from '@ant-design/icons';
 import { Alert, Button, Col, Flex, Form, Input, Row, Select } from 'antd';
 import { Container } from 'react-bootstrap';
-import CardImportModal from './import/CardImportModal';
+import ImportModal from './ImportModal';
 import { useState } from 'react';
 
 const onFinish = (values: ICard) => {
@@ -173,7 +173,7 @@ const MultipleForm = () => {
                 </Form.Item>
             </Form>
 
-            <CardImportModal
+            <ImportModal
                 modalCardImportOpen={modalCardImportOpen}
                 setModalCardImportOpen={setModalCardImportOpen}
                 handleGetFormData={handleGetFormData}
@@ -183,7 +183,7 @@ const MultipleForm = () => {
     );
 };
 
-const CardRechargeForm = () => {
+const RechargeForm = () => {
     return (
         <>
             <Container className="exchangeForm">
@@ -204,4 +204,4 @@ const CardRechargeForm = () => {
     );
 };
 
-export default CardRechargeForm;
+export default RechargeForm;

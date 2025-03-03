@@ -7,8 +7,8 @@ interface IProps {
     handleDelete: (uuid: string) => void;
 }
 
-const CardImportDelete = (props: IProps) => {
-    const confirm: PopconfirmProps['onConfirm'] = (e) => {
+const Delete = (props: IProps) => {
+    const confirm: PopconfirmProps['onConfirm'] = () => {
         props.handleDelete(props.uuid);
     };
 
@@ -26,4 +26,4 @@ const CardImportDelete = (props: IProps) => {
     );
 };
 
-export default CardImportDelete;
+export default Delete;

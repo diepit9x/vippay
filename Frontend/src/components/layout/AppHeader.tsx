@@ -83,7 +83,7 @@ const AppHeader: React.FC = () => {
                             <NavLink to="/card-recharge" className="nav-link">
                                 Đổi thẻ cào
                             </NavLink>
-                            <NavLink to="/buy-card" className="nav-link">
+                            <NavLink to="/card-purchase" className="nav-link">
                                 Mua thẻ cào
                             </NavLink>
                             <NavDropdown title="Giao dịch" id="basic-nav-dropdown">

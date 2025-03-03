@@ -1,4 +1,5 @@
 import AppLayout from '@/AppLayout';
+import CardPurchasePage from '@/pages/CardPurchase';
 import CardRechargePage from '@/pages/CardRecharge';
 import ErrorPage from '@/pages/ErrorPage';
 import HomePage from '@/pages/HomePage';
@@ -23,6 +24,17 @@ export const router = createBrowserRouter([
                             <title>Đổi thẻ cào</title>
                         </Helmet>
                         <CardRechargePage />
+                    </>
+                ),
+            },
+            {
+                path: '/card-purchase',
+                element: (
+                    <>
+                        <Helmet>
+                            <title>Mua thẻ cào điện thoại, thẻ game</title>
+                        </Helmet>
+                        <CardPurchasePage />
                     </>
                 ),
             },

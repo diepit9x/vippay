@@ -62,15 +62,19 @@
 .card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
 }
 
 /* Giới hạn tiêu đề và mô tả */
 .card-title {
     font-size: 1.1rem;
     font-weight: bold;
-    white-space: nowrap;
     overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Giới hạn tối đa 2 dòng */
+    -webkit-box-orient: vertical;
     text-overflow: ellipsis;
+    white-space: normal; /* Cho phép xuống dòng */
 }
 
 .card-text {

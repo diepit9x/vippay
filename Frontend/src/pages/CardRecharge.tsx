@@ -1,7 +1,6 @@
-import CardRechargeForm from '@/components/card/CardRechargeForm';
-import TableUser from '@/components/card/CardRechargeHistory';
-import RechargeRateTable from '@/components/card/CardRechargeRate';
-import { Helmet } from 'react-helmet-async';
+import CardRechargeForm from '@/components/card/recharge/CardRechargeForm';
+import TableUser from '@/components/card/recharge/CardRechargeHistory';
+import RechargeRateTable from '@/components/card/recharge/CardRechargeRate';
 
 const CardRechargePage = () => {
     return (

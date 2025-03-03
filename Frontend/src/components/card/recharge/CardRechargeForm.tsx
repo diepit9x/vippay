@@ -8,7 +8,7 @@ import {
 import { Alert, Button, Col, Flex, Form, Input, Row, Select } from 'antd';
 import { Container } from 'react-bootstrap';
 import CardImportModal from './import/CardImportModal';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 const onFinish = (values: ICard) => {
     console.log('Received values of form:', values);

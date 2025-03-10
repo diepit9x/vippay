@@ -3,6 +3,7 @@ import CardPurchasePage from '@/pages/card/Purchase';
 import CardRechargePage from '@/pages/card/Recharge';
 import ErrorPage from '@/pages/ErrorPage';
 import HomePage from '@/pages/HomePage';
+import TransactionTransferPage from '@/pages/transaction/Transfer';
 import { Helmet } from 'react-helmet-async';
 import { createBrowserRouter, Navigate } from 'react-router-dom';
 
@@ -60,7 +61,7 @@ export const router = createBrowserRouter([
                                 <Helmet>
                                     <title>Chuyển tiền</title>
                                 </Helmet>
-                                <div>Chuyển tiền page</div>
+                                <TransactionTransferPage />
                             </>
                         ),
                     },

@@ -7,7 +7,7 @@ import {
 } from '@ant-design/icons';
 import { Alert, Button, Col, Flex, Form, Input, Row, Select } from 'antd';
 import { Container } from 'react-bootstrap';
-import ImportModal from './ImportModal';
+import ImportModal from '@/components/card/recharge/element/ImportModal';
 import { useState } from 'react';
 
 const onFinish = (values: ICard) => {

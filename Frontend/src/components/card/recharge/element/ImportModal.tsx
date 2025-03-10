@@ -8,7 +8,7 @@ import excel from 'exceljs';
 import FileSample from '@/assets/files/sample/ImportCards.xlsx?url';
 import { vndFormat } from '@/helpers/date.range';
 import { v4 as uuidv4 } from 'uuid';
-import Delete from './import/Delete';
+import Delete from '@/components/card/recharge/element/import/Delete';
 
 interface ICardImport extends ICard {
     uuid: string;

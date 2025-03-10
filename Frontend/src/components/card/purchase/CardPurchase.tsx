@@ -1,7 +1,7 @@
 import { Alert, Col, Row } from 'antd';
 import { Container } from 'react-bootstrap';
-import Cart from './element/Cart';
-import Selection from './element/Selection';
+import Cart from '@/components/card/purchase/element/Cart';
+import Selection from '@/components/card/purchase/element/Selection';
 
 const CardPurchase = () => {
     return (
@@ -15,7 +15,7 @@ const CardPurchase = () => {
                     type="info"
                 />
             </div>
-            <Row>
+            <Row gutter={10}>
                 <Col sm={24} md={12} style={{ width: '100%' }}>
                     <Selection />
                 </Col>

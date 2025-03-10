@@ -1,6 +1,6 @@
 import { TAuthAction } from '@/models/auth/auth.action';
 import { IAuthLogin } from '@/models/auth/auth.login';
-import { antdFormRules } from '@/models/rule/antd.form.rule';
+import { authRules } from '@/models/rule/antd.auth.rule';
 import { Form, Input } from 'antd';
 
 interface IProps {
@@ -13,14 +13,14 @@ const Login = (props: IProps) => {
             <Form.Item<IAuthLogin>
                 label="Tài khoản"
                 name="username"
-                rules={antdFormRules.usernamePE}
+                rules={authRules.usernamePE}
             >
                 <Input placeholder="Username/Email/Phone" />
             </Form.Item>
             <Form.Item<IAuthLogin>
                 label="Mật khẩu"
                 name="password"
-                rules={antdFormRules.password}
+                rules={authRules.password}
             >
                 <Input.Password
                     placeholder="Password"

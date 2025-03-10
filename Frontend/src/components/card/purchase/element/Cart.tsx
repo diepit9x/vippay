@@ -3,7 +3,7 @@ import { ICart } from '@/models/card/cart/cart';
 import { removeCart, updateCart } from '@/redux/cart/cart.slice';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { Button, InputNumber, Table, TableColumnsType } from 'antd';
-import Delete from './cart/Delete';
+import Delete from '@/components/card/purchase/element/cart/Delete';
 
 const Cart = () => {
     const dispatch = useAppDispatch();
@@ -46,6 +46,7 @@ const Cart = () => {
             key: 'quantity',
             render: (_, record) => (
                 <InputNumber
+                    type="tel"
                     min={1}
                     value={record.quantity}
                     style={{ width: '60px' }}

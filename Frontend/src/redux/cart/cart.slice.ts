@@ -1,4 +1,4 @@
-import { ICart } from '@/models/card/cart/cart';
+import { ICart } from '@/models/request/card/cart/cart';
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 

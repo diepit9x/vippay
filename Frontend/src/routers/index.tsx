@@ -1,9 +1,11 @@
 import AppLayout from '@/AppLayout';
-import CardPurchasePage from '@/pages/card/Purchase';
-import CardRechargePage from '@/pages/card/Recharge';
+import HistoryPage from '@/components/user/transaction/history/History';
+import CardPurchasePage from '@/pages/user/card/Purchase';
+import CardRechargePage from '@/pages/user/card/Recharge';
 import ErrorPage from '@/pages/ErrorPage';
 import HomePage from '@/pages/HomePage';
-import TransactionTransferPage from '@/pages/transaction/Transfer';
+import TransferPage from '@/pages/user/transaction/Transfer';
+import WithdrawPage from '@/pages/user/transaction/Withdraw';
 import { Helmet } from 'react-helmet-async';
 import { createBrowserRouter, Navigate } from 'react-router-dom';
 
@@ -50,7 +52,7 @@ export const router = createBrowserRouter([
                                 <Helmet>
                                     <title>Lịch sử giao dịch</title>
                                 </Helmet>
-                                <div>History page</div>
+                                <HistoryPage />
                             </>
                         ),
                     },
@@ -61,7 +63,7 @@ export const router = createBrowserRouter([
                                 <Helmet>
                                     <title>Chuyển tiền</title>
                                 </Helmet>
-                                <TransactionTransferPage />
+                                <TransferPage />
                             </>
                         ),
                     },
@@ -72,7 +74,7 @@ export const router = createBrowserRouter([
                                 <Helmet>
                                     <title>Rút tiền</title>
                                 </Helmet>
-                                <div>Rút tiền page</div>
+                                <WithdrawPage />
                             </>
                         ),
                     },
@@ -81,15 +83,7 @@ export const router = createBrowserRouter([
         ],
     },
     {
-        path: '/login',
+        path: '/admin',
         element: <div>login page</div>,
-    },
-    {
-        path: '/logout',
-        element: <div>logout page</div>,
-    },
-    {
-        path: '/register',
-        element: <div>register page</div>,
     },
 ]);

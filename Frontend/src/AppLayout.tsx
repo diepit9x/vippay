@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
-import AppHeader from '@/components/layout/AppHeader';
-import AppFooter from '@/components/layout/AppFooter';
+import AppHeader from '@/components/user/layout/AppHeader';
+import AppFooter from '@/components/user/layout/AppFooter';
 import '@/styles/style.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 

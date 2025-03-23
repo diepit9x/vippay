@@ -1,4 +1,4 @@
-import AppLayout from '@/AppLayout';
+import AppLayout from '@/components/user/layout/AppLayout';
 import HistoryPage from '@/components/user/transaction/history/History';
 import CardPurchasePage from '@/pages/user/card/Purchase';
 import CardRechargePage from '@/pages/user/card/Recharge';
@@ -8,6 +8,7 @@ import TransferPage from '@/pages/user/transaction/Transfer';
 import WithdrawPage from '@/pages/user/transaction/Withdraw';
 import { Helmet } from 'react-helmet-async';
 import { createBrowserRouter, Navigate } from 'react-router-dom';
+import AdminLayout from '@/components/admin/layout/AdminLayout';
 
 export const router = createBrowserRouter([
     {
@@ -84,6 +85,20 @@ export const router = createBrowserRouter([
     },
     {
         path: '/admin',
-        element: <div>login page</div>,
+        element: <AdminLayout />,
+        children: [
+            {
+                index: true,
+                element: <>admin page</>,
+            },
+            {
+                path: 'page1',
+                element: <>Page 1</>,
+            },
+            {
+                path: 'page2',
+                element: <>Page 2</>,
+            },
+        ],
     },
 ]);

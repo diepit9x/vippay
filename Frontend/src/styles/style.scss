@@ -59,6 +59,10 @@ body {
     overflow-x: hidden;
     margin-top: 60px;
 
+    a {
+        text-decoration: none !important;
+    }
+
     .description .title {
         text-transform: uppercase;
         font-size: 20px;
@@ -225,7 +229,6 @@ body {
 
     .section-banner {
         background-color: $primaryColor;
-        /* Mặc định trên desktop */
         .section-banner_title,
         .section-banner_desc {
             color: #fff;
@@ -246,225 +249,226 @@ body {
             }
         }
     }
+    .container {
+        .custom-ant-table {
+            .ant-pro-card-body {
+                padding-inline: 0px !important;
+            }
 
-    .custom-ant-table {
-        .ant-pro-card-body {
-            padding-inline: 0px !important;
+            .ant-pro-query-filter.ant-pro-query-filter {
+                padding: 0px;
+                padding-bottom: 15px;
+                @media (max-width: 768px) {
+                    padding: 0px;
+                }
+                .ant-pro-query-filter-row {
+                    row-gap: 5px;
+                }
+                .ant-col.ant-col-24:last-child {
+                    .ant-form-item-label {
+                        display: none;
+                    }
+                }
+            }
+
+            .ant-table {
+                scrollbar-color: auto;
+                .ant-table-thead > tr > th {
+                    background-color: #f2f2f2;
+                    border-color: #dee2e6 !important;
+                }
+                .ant-table-tbody > tr > td {
+                    border-color: #dee2e6 !important;
+                }
+                .ant-table-tbody > tr:hover {
+                    background-color: #f1f1f1;
+                    transition: background 0.3s ease-in-out;
+                }
+            }
+            .ant-pro-card {
+                .ant-pro-table-list-toolbar-container {
+                    padding-block: 5px;
+                }
+            }
+
+            .ant-table-title-custom {
+                text-align: center;
+                text-transform: uppercase;
+                font-weight: 600;
+                color: $primaryColor;
+            }
+            .total-price {
+                color: $primaryColor;
+                font-size: 18px;
+            }
         }
 
-        .ant-pro-query-filter.ant-pro-query-filter {
-            padding: 0px;
-            padding-bottom: 15px;
-            @media (max-width: 768px) {
+        .custom-ant-form {
+            .ant-form {
                 padding: 0px;
             }
-            .ant-pro-query-filter-row {
-                row-gap: 5px;
-            }
-            .ant-col.ant-col-24:last-child {
+            .ant-row {
                 .ant-form-item-label {
-                    display: none;
+                    font-weight: 600;
+                }
+            }
+            .ant-form-item {
+                margin-bottom: 5px;
+            }
+            .ant-input-group-addon {
+                .forgot {
+                    color: $primaryColor;
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+            }
+            .suffix-checking {
+                font-style: italic;
+                font-family: 'Times New Roman', Times, serif;
+                color: $successColor;
+                font-weight: 600;
+            }
+            .amount-checking {
+                font-size: 16px;
+                font-weight: 600;
+                .balance {
+                    color: $primaryColor;
                 }
             }
         }
-
-        .ant-table {
-            scrollbar-color: auto;
-            .ant-table-thead > tr > th {
-                background-color: #f2f2f2;
-                border-color: #dee2e6 !important;
-            }
-            .ant-table-tbody > tr > td {
-                border-color: #dee2e6 !important;
-            }
-            .ant-table-tbody > tr:hover {
-                background-color: #f1f1f1;
-                transition: background 0.3s ease-in-out;
+        .ant-modal.custom-ant-modal {
+            .ant-modal-content {
+                .ant-modal-header {
+                    text-align: center;
+                    .ant-modal-title {
+                        font-size: 1.4em;
+                        color: $primaryColor;
+                    }
+                }
             }
         }
-        .ant-pro-card {
-            .ant-pro-table-list-toolbar-container {
-                padding-block: 5px;
-            }
+        .ant-btn-primary {
+            background-color: $primaryColor;
         }
 
-        .ant-table-title-custom {
-            text-align: center;
-            text-transform: uppercase;
-            font-weight: 600;
-            color: $primaryColor;
-        }
-        .total-price {
-            color: $primaryColor;
-            font-size: 18px;
-        }
-    }
+        .ant-radio-button-wrapper-checked {
+            background: $primaryColor !important;
+            border-color: $primaryColor !important;
 
-    .custom-ant-form {
-        .ant-form {
-            padding: 0px;
-        }
-        .ant-row {
-            .ant-form-item-label {
-                font-weight: 600;
+            &:hover {
+                background: $primaryHoverColor !important;
             }
         }
-        .ant-form-item {
-            margin-bottom: 5px;
+        .ant-radio-button-wrapper {
+            &:first-child,
+            &:last-child {
+                border-radius: 0px;
+            }
         }
-        .ant-input-group-addon {
-            .forgot {
-                color: $primaryColor;
-                &:hover {
+
+        .ant-upload-list-item {
+            .ant-upload-list-item-action {
+                opacity: 1 !important;
+                .anticon-delete {
+                    color: #ff0909 !important;
+                }
+            }
+        }
+        .custom-card-radio-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin: 15px 0px;
+
+            .card-product-container {
+                flex: 0 0 23%;
+                box-sizing: border-box;
+                padding: 0px;
+            }
+
+            .card-product {
+                border: solid 1px #dddedf;
+                display: block;
+                text-align: center;
+                background: white;
+                border-radius: 8px;
+                padding: 10px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                text-decoration: none;
+                transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+                height: 100%;
+                max-width: 100%;
+
+                &:hover:not(.card-product-checked) {
+                    transform: translateY(-5px);
+                    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
                     cursor: pointer;
                 }
             }
-        }
-        .suffix-checking {
-            font-style: italic;
-            font-family: 'Times New Roman', Times, serif;
-            color: $successColor;
-            font-weight: 600;
-        }
-        .amount-checking {
-            font-size: 16px;
-            font-weight: 600;
-            .balance {
-                color: $primaryColor;
-            }
-        }
-    }
-    .ant-modal.custom-ant-modal {
-        .ant-modal-content {
-            .ant-modal-header {
-                text-align: center;
-                .ant-modal-title {
-                    font-size: 1.4em;
-                    color: $primaryColor;
-                }
-            }
-        }
-    }
-    .ant-btn-primary {
-        background-color: $primaryColor;
-    }
-
-    .ant-radio-button-wrapper-checked {
-        background: $primaryColor !important;
-        border-color: $primaryColor !important;
-
-        &:hover {
-            background: $primaryHoverColor !important;
-        }
-    }
-    .ant-radio-button-wrapper {
-        &:first-child,
-        &:last-child {
-            border-radius: 0px;
-        }
-    }
-
-    .ant-upload-list-item {
-        .ant-upload-list-item-action {
-            opacity: 1 !important;
-            .anticon-delete {
-                color: #ff0909 !important;
-            }
-        }
-    }
-    .custom-card-radio-group {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        justify-content: center;
-        margin: 15px 0px;
-
-        .card-product-container {
-            flex: 0 0 23%;
-            box-sizing: border-box;
-            padding: 0px;
-        }
-
-        .card-product {
-            border: solid 1px #dddedf;
-            display: block;
-            text-align: center;
-            background: white;
-            border-radius: 8px;
-            padding: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            text-decoration: none;
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-            height: 100%;
-            max-width: 100%;
-
-            &:hover:not(.card-product-checked) {
+            .card-product-checked {
                 transform: translateY(-5px);
-                box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
-                cursor: pointer;
+                box-shadow: 0 6px 10px $primaryColor;
+                border: solid 1px $primaryColor;
             }
-        }
-        .card-product-checked {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 10px $primaryColor;
-            border: solid 1px $primaryColor;
-        }
-        .card-image img {
-            width: 100%;
-            margin: 5px 0px;
-        }
-        .card-text {
-            padding: 5px 0px;
-            font-weight: bold;
-            width: 100%;
-            .label-card {
-                font-size: 12px;
-            }
-            .price-card {
-                font-size: 14px;
-            }
-        }
-        .card-title {
-            font-weight: 600;
-            color: #333;
-            text-transform: uppercase;
-        }
-        .badge {
-            position: absolute;
-            top: 2px;
-            right: 2px;
-            background-color: $primaryColor;
-            color: white;
-            font-size: 12px;
-            font-weight: bold;
-            border-radius: 50%;
-            width: 20px;
-            height: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-        }
-
-        label {
-            span {
-                padding: 0px;
+            .card-image img {
                 width: 100%;
-                &:first-of-type {
-                    display: none;
+                margin: 5px 0px;
+            }
+            .card-text {
+                padding: 5px 0px;
+                font-weight: bold;
+                width: 100%;
+                .label-card {
+                    font-size: 12px;
+                }
+                .price-card {
+                    font-size: 14px;
                 }
             }
-        }
-        label.ant-checkbox-wrapper-checked {
-            span:not(.ant-checkbox.ant-wave-target) {
-                padding: 0px;
-                .card-product {
-                    color: $primaryColor;
-                    transform: translateY(-5px);
-                    box-shadow: 0 6px 10px $primaryColor;
-                    border: solid 1px $primaryColor;
-                    .card-text {
+            .card-title {
+                font-weight: 600;
+                color: #333;
+                text-transform: uppercase;
+            }
+            .badge {
+                position: absolute;
+                top: 2px;
+                right: 2px;
+                background-color: $primaryColor;
+                color: white;
+                font-size: 12px;
+                font-weight: bold;
+                border-radius: 50%;
+                width: 20px;
+                height: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+            }
+
+            label {
+                span {
+                    padding: 0px;
+                    width: 100%;
+                    &:first-of-type {
+                        display: none;
+                    }
+                }
+            }
+            label.ant-checkbox-wrapper-checked {
+                span:not(.ant-checkbox.ant-wave-target) {
+                    padding: 0px;
+                    .card-product {
                         color: $primaryColor;
+                        transform: translateY(-5px);
+                        box-shadow: 0 6px 10px $primaryColor;
+                        border: solid 1px $primaryColor;
+                        .card-text {
+                            color: $primaryColor;
+                        }
                     }
                 }
             }

@@ -9,6 +9,18 @@ import WithdrawPage from '@/pages/user/transaction/Withdraw';
 import { Helmet } from 'react-helmet-async';
 import { createBrowserRouter, Navigate } from 'react-router-dom';
 import AdminLayout from '@/components/admin/layout/AdminLayout';
+import Dashboard from '@/components/admin/dashboard';
+import CardPurchase from '@/components/admin/card/purchase';
+import CardRecharge from '@/components/admin/card/recharge/list';
+import MemberList from '@/components/admin/member/list';
+import MemberTransaction from '@/components/admin/member/transaction';
+import APIManagement from '@/components/admin/api';
+import ArticleManagement from '@/components/admin/article';
+import Setting from '@/components/admin/setting';
+import CardPurchaseList from '@/components/admin/card/purchase/list';
+import CardPurchaseManagement from '@/components/admin/card/purchase/management';
+import CardRechargeList from '@/components/admin/card/recharge/list';
+import CardRechargeManagement from '@/components/admin/card/recharge/management';
 
 export const router = createBrowserRouter([
     {
@@ -89,15 +101,144 @@ export const router = createBrowserRouter([
         children: [
             {
                 index: true,
-                element: <>admin page</>,
+                element: (
+                    <>
+                        <Helmet>
+                            <title>Dashboard</title>
+                        </Helmet>
+                        <Dashboard />
+                    </>
+                ),
             },
             {
-                path: 'page1',
-                element: <>Page 1</>,
+                path: 'dashboard',
+                element: (
+                    <>
+                        <Helmet>
+                            <title>Dashboard</title>
+                        </Helmet>
+                        <Dashboard />
+                    </>
+                ),
             },
             {
-                path: 'page2',
-                element: <>Page 2</>,
+                path: 'card',
+                children: [
+                    {
+                        path: 'purchase',
+                        children: [
+                            {
+                                path: 'list',
+                                element: (
+                                    <>
+                                        <Helmet>
+                                            <title>Danh sách mua thẻ</title>
+                                        </Helmet>
+                                        <CardPurchaseList />
+                                    </>
+                                ),
+                            },
+                            {
+                                path: 'management',
+                                element: (
+                                    <>
+                                        <Helmet>
+                                            <title>Quản lý mua thẻ</title>
+                                        </Helmet>
+                                        <CardPurchaseManagement />
+                                    </>
+                                ),
+                            },
+                        ],
+                    },
+                    {
+                        path: 'recharge',
+                        children: [
+                            {
+                                path: 'list',
+                                element: (
+                                    <>
+                                        <Helmet>
+                                            <title>Danh sách đổi thẻ</title>
+                                        </Helmet>
+                                        <CardRechargeList />
+                                    </>
+                                ),
+                            },
+                            {
+                                path: 'management',
+                                element: (
+                                    <>
+                                        <Helmet>
+                                            <title>Quản lý đổi thẻ</title>
+                                        </Helmet>
+                                        <CardRechargeManagement />
+                                    </>
+                                ),
+                            },
+                        ],
+                    },
+                ],
+            },
+            {
+                path: 'member',
+                children: [
+                    {
+                        path: 'list',
+                        element: (
+                            <>
+                                <Helmet>
+                                    <title>Danh sách thành viên</title>
+                                </Helmet>
+                                <MemberList />
+                            </>
+                        ),
+                    },
+                    {
+                        path: 'transaction',
+                        element: (
+                            <>
+                                <Helmet>
+                                    <title>Giao dịch thành viên</title>
+                                </Helmet>
+                                <MemberTransaction />
+                            </>
+                        ),
+                    },
+                ],
+            },
+            {
+                path: 'api',
+                element: (
+                    <>
+                        <Helmet>
+                            <title>Tích hợp</title>
+                        </Helmet>
+                        <APIManagement />
+                    </>
+                ),
+            },
+            {
+                path: 'article',
+                element: (
+                    <>
+                        <Helmet>
+                            <title>Bài viết</title>
+                        </Helmet>
+                        <ArticleManagement />
+                    </>
+                ),
+            },
+            {
+                path: 'setting',
+                element: (
+                    <>
+                        <Helmet>
+                            <title>Cài đặt</title>
+                        </Helmet>
+                        <Setting />
+                    </>
+                ),
             },
         ],
     },

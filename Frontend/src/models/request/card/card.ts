@@ -1,6 +1,6 @@
 export interface ICard {
-    telco: string | null;
-    amount: number | null;
+    telco: string;
+    amount: number;
     code: string;
     serial: string;
 }

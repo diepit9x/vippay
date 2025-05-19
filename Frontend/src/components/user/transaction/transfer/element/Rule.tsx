@@ -1,4 +1,4 @@
-import { vndFormat } from '@/helpers/date.range';
+import { vndMoneyFormat } from '@/helpers/format';
 import { ITransactionFees } from '@/models/request/transaction/transaction.fee';
 import { Table, TableColumnsType } from 'antd';
 
@@ -43,7 +43,7 @@ const Rule = () => {
             key: 'feeAmount',
             render: (_, record) =>
                 record.unit === 'FIXED'
-                    ? vndFormat(record.feeAmount)
+                    ? vndMoneyFormat(record.feeAmount)
                     : `${record.feeAmount}%`,
         },
     ];

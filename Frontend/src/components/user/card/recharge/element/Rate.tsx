@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Table, Radio, Flex } from 'antd';
 import { Container } from 'react-bootstrap';
-import { vndMoneyFormat } from '@/helpers/money.format';
+import { vndMoneyFormat } from '@/helpers/format';
 
 const Rate = () => {
     const data = [

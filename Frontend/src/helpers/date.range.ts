@@ -1,16 +1,14 @@
 import dayjs from 'dayjs';
-export const FORMATE_DATE = 'YYYY-MM-DD';
-export const FORMATE_DATE_VN = 'DD-MM-YYYY';
+export const FORMAT_DATE = 'YYYY-MM-DD';
+export const FORMAT_DATE_VN = 'DD-MM-YYYY';
+export const FORMAT_DATETIME_VN = 'DD/MM/YYYY HH:mm';
 export const dateRangeValidate = (dateRange: any) => {
     if (!dateRange) return undefined;
-    const startDate = dayjs(dateRange[0], FORMATE_DATE).toDate();
-    const endDate = dayjs(dateRange[1], FORMATE_DATE).toDate();
+    const startDate = dayjs(dateRange[0], FORMAT_DATE).toDate();
+    const endDate = dayjs(dateRange[1], FORMAT_DATE).toDate();
     return [startDate, endDate];
 };
 
-export const vndFormat = (v: number = 0) => {
-    return new Intl.NumberFormat('vi-VN', {
-        style: 'currency',
-        currency: 'VND',
-    }).format(v);
+export const datetimeFormat = (dateISO8601: string) => {
+    return dayjs(dateISO8601).format(FORMAT_DATETIME_VN);
 };

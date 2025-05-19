@@ -10,16 +10,14 @@ import { Helmet } from 'react-helmet-async';
 import { createBrowserRouter, Navigate } from 'react-router-dom';
 import AdminLayout from '@/components/admin/layout/AdminLayout';
 import Dashboard from '@/components/admin/dashboard';
-import CardPurchase from '@/components/admin/card/purchase';
-import CardRecharge from '@/components/admin/card/recharge/list';
 import MemberList from '@/components/admin/member/list';
 import MemberTransaction from '@/components/admin/member/transaction';
 import APIManagement from '@/components/admin/api';
 import ArticleManagement from '@/components/admin/article';
 import Setting from '@/components/admin/setting';
-import CardPurchaseList from '@/components/admin/card/purchase/list';
+import CardPurchaseList from '@/components/admin/card/purchase/list/CardList';
 import CardPurchaseManagement from '@/components/admin/card/purchase/management';
-import CardRechargeList from '@/components/admin/card/recharge/list';
+import CardRechargeList from '@/components/admin/card/recharge/list/CardRechargeList';
 import CardRechargeManagement from '@/components/admin/card/recharge/management';
 
 export const router = createBrowserRouter([

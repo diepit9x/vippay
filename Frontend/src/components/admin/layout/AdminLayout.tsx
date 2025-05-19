@@ -34,6 +34,7 @@ const AdminLayout = () => {
                     }}
                 >
                     <ProLayout
+                        className="pro-layout-custom"
                         logo={'https://vippay.vn/public/img/vippay-favicon.png'}
                         title={'VIPPAY'}
                         prefixCls="my-prefix"
@@ -108,12 +109,12 @@ const AdminLayout = () => {
                         }}
                         onMenuHeaderClick={(e) => console.log(e)}
                         menuItemRender={(menuItemProps, defaultDom) => {
-                            console.log(
-                                'menuItemProps: ',
-                                menuItemProps,
-                                'defaultDom:',
-                                defaultDom,
-                            );
+                            // console.log(
+                            //     'menuItemProps: ',
+                            //     menuItemProps,
+                            //     'defaultDom:',
+                            //     defaultDom,
+                            // );
 
                             return menuItemProps.isUrl ? (
                                 defaultDom

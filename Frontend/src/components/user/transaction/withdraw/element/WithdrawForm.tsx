@@ -1,10 +1,10 @@
-import { vndFormat } from '@/helpers/date.range';
 import { transferRules } from '@/models/rule/antd.transaction.rule';
 import { ITransfer } from '@/models/request/transaction/transaction.transfer';
 import { Button, Form, Input, InputNumber, Select } from 'antd';
 import type { FormProps } from 'antd';
 import { useState } from 'react';
 import AuthenticationModal from '@/components/user/transaction/AuthenticationModal';
+import { vndMoneyFormat } from '@/helpers/format';
 
 const WithdrawForm = () => {
     const [form] = Form.useForm();
@@ -83,7 +83,9 @@ const WithdrawForm = () => {
                         addonAfter={
                             <div className="amount-checking">
                                 Số dư:{' '}
-                                <span className="balance">{vndFormat(9999999999)}</span>
+                                <span className="balance">
+                                    {vndMoneyFormat(9999999999)}
+                                </span>
                             </div>
                         }
                     />

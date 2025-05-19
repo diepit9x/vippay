@@ -1,9 +1,9 @@
 import { Checkbox, CheckboxOptionType, Radio, RadioChangeEvent } from 'antd';
 import { useEffect, useState } from 'react';
-import { vndFormat } from '@/helpers/date.range';
 import { v4 as uuidv4 } from 'uuid';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { selectionCart } from '@/redux/cart/cart.slice';
+import { vndMoneyFormat } from '@/helpers/format';
 
 interface ICardTelco {
     id: number;
@@ -198,7 +198,9 @@ const Selection = () => {
                                     <div className="label-card">
                                         {selectedTelco.label}
                                     </div>
-                                    <div className="price-card">{vndFormat(amount)}</div>
+                                    <div className="price-card">
+                                        {vndMoneyFormat(amount)}
+                                    </div>
                                 </div>
                             </div>
                         </Checkbox>

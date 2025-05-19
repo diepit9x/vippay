@@ -474,4 +474,18 @@ body {
             }
         }
     }
+    .pro-layout-custom {
+        .pointer {
+            cursor: pointer;
+            &.pointer-warning {
+                color: chocolate;
+            }
+            &.pointer-error {
+                color: #ff0909;
+            }
+            &.pointer-info {
+                color: #637bfb;
+            }
+        }
+    }
 }

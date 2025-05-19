@@ -6,9 +6,9 @@ import { useState } from 'react';
 import { Buffer } from 'buffer';
 import excel from 'exceljs';
 import FileSample from '@/assets/files/sample/ImportCards.xlsx?url';
-import { vndFormat } from '@/helpers/date.range';
 import { v4 as uuidv4 } from 'uuid';
 import Delete from '@/components/user/card/recharge/element/import/Delete';
+import { vndMoneyFormat } from '@/helpers/format';
 
 interface ICardImport extends ICard {
     uuid: string;
@@ -207,7 +207,7 @@ const ImportModal = (props: IProps) => {
             key: 'amount',
             render: (value, record, index) => (
                 <div style={{ color: '#c0514a', fontWeight: 600 }}>
-                    {vndFormat(record.amount)}
+                    {vndMoneyFormat(record.amount)}
                 </div>
             ),
         },
